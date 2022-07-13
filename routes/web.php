@@ -15,8 +15,14 @@ use App\Models\Listing;
 */
 
 Route::get('/', function () {
-    return view('welcome', [
+    return view('listings', [
         "heading" => "Title",
         "listings" => Listing::all()
+    ]);
+});
+
+Route::get('/listings/{id}', function ($id) {
+    return view('listing', [
+        "listing" => Listing::find($id)
     ]);
 });
